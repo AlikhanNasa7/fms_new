@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from users.models import Farmer, Buyer, Admin, CustomUser
+from users.models import Farmer, Buyer, CustomUser
 
 
 class FarmerSerializer(serializers.ModelSerializer):
@@ -14,10 +14,10 @@ class BuyerSerializer(serializers.ModelSerializer):
         exclude = ['password']
 
 
-class AdminSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Admin
-        fields = ['password']
+# class AdminSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Admin
+#         fields = ['password']
 
 class ProfileSerializer(serializers.ModelSerializer):
     profile_data = serializers.SerializerMethodField()
@@ -31,7 +31,7 @@ class ProfileSerializer(serializers.ModelSerializer):
             return FarmerSerializer(obj).data
         elif obj.role=="buyer": 
             return BuyerSerializer(obj).data
-        else:
-            return AdminSerializer(obj).data
+        # else:
+        #     return AdminSerializer(obj).data
 
 

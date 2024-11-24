@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import CustomUser, Farmer, Buyer, Admin
+from .models import CustomUser, Farmer, Buyer
 
 
 
@@ -15,7 +15,7 @@ class FarmerAdmin(admin.ModelAdmin):
 class BuyerAdmin(admin.ModelAdmin):
     pass
 
-@admin.register(Admin)
-class AdminAdmin(admin.ModelAdmin):
-    pass
+# @admin.register(Admin)
+# class AdminAdmin(admin.ModelAdmin):
+#     pass
 

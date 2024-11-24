@@ -1,5 +1,5 @@
 from rest_framework.permissions import BasePermission
-from users.models import Farmer, Buyer, Admin
+from users.models import Farmer, Buyer
 
 
 class IsFarmer(BasePermission):
@@ -12,6 +12,6 @@ class IsBuyer(BasePermission):
         return isinstance(request.user, Buyer)
 
 
-class IsAdmin(BasePermission):
-    def has_permission(self, request, view):
-        return isinstance(request.user, Admin)
+# class IsAdmin(BasePermission):
+#     def has_permission(self, request, view):
+#         return isinstance(request.user, Admin)

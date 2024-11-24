@@ -8,10 +8,10 @@ from rest_framework import serializers, status
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework_simplejwt.exceptions import TokenError, InvalidToken
 from users.models import CustomUser
-from .permissions import IsFarmer, IsAdmin, IsBuyer
+from .permissions import IsFarmer, IsBuyer
 from rest_framework import viewsets
-from .serializers import ProfileSerializer, FarmerSerializer, BuyerSerializer, AdminSerializer
-from users.models import Farmer, Buyer, Admin
+from .serializers import ProfileSerializer, FarmerSerializer, BuyerSerializer
+from users.models import Farmer, Buyer
 from rest_framework import mixins
 
 class MyTokenObtainSerializer(TokenObtainPairSerializer):

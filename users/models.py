@@ -43,7 +43,6 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     ROLE_CHOICES = [
         ('Farmer', 'Farmer'),
         ('Buyer', 'Buyer'),
-        ('Admin', 'Admin')
     ]
     role = models.CharField(max_length=10, choices=ROLE_CHOICES)
     objects = UserManager()
@@ -55,18 +54,18 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         return self.email
 
 
-class Admin(models.Model):
-    user = models.OneToOneField(
-        CustomUser,
-        on_delete=models.CASCADE,
-        primary_key=True,
-    )
-    permissions = models.JSONField(blank=True, null=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+# class Admin(models.Model):
+#     user = models.OneToOneField(
+#         CustomUser,
+#         on_delete=models.CASCADE,
+#         primary_key=True,
+#     )
+#     permissions = models.JSONField(blank=True, null=True)
+#     created_at = models.DateTimeField(auto_now_add=True)
+#     updated_at = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
-        return f"Admin: {self.user.username}"
+#     def __str__(self):
+#         return f"Admin: {self.user.username}"
 
 class Farmer(models.Model):
     user = models.OneToOneField('users.CustomUser', models.CASCADE, primary_key=True)
